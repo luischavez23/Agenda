@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+
+{% block 'title' %}Contact | {{contact.id}}{% endblock %}
+
+{% block 'content' %}
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-3 col-md-7 pt-3">
+                <div class="buttons pt-3 d-flex justify-content-end">
+                    <a href="{% url 'contact' %}" class="btn btn btn-outline-primary mb-3">Go Back</a>
+                </div>
+                <div class="card">
+                    <div class="card-text p-3">
+                        <p class="fs-4"><span class="fw-bold">Name: </span>{{contact.name}}</p>
+                        <p class="fs-4"><span class="fw-bold">Last name: </span>{{contact.last_name}}</p>
+                        <p class="fs-4"><span class="fw-bold">Phone: </span>{{contact.phone}}</p>
+                        <p class="fs-4"><span class="fw-bold">Mobile: </span>{{contact.mobile}}</p>
+                        <p class="fs-4"><span class="fw-bold">Email: </span>{{contact.email}}</p>
+                        <p class="fs-4"><span class="fw-bold">Company: </span>{{contact.company}}</p>
+                        <p class="fs-4"><span class="fw-bold">Created: </span>{{contact.created_at}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

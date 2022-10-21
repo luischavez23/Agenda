@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %}
+
+{% block 'title' %}Contacts{% endblock %}
+
+{% block 'content' %}
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-3 col-md-7 pt-3">
+                <h1 class="Display-1 text-center">Contacts</h1>
+                <form class="d-flex pt-3" action="{% url 'contact' %}" method="GET">
+                    <input  name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+                <div class="buttons pt-3 d-flex justify-content-end">
+                    <a href="{% url 'contact' %}" class="btn btn btn-outline-primary me-2">All Contacts</a>
+                    <button type="submit" class="btn btn btn-outline-primary"><i class="fa-solid fa-plus"></i> New contact</button>
+                </div>
+                <ul class="list-group pt-3">
+                    {% for contact in contacts %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <p class="label">{{contact.name}}</p>
+                        <div class="buttons">
+                            <a class="btn btn-outline-info" href="{% url 'detail' id=contact.id %}" title="Information"><i class="fa-solid fa-circle-info"></i> Information</a>
+                            <a class="btn btn-outline-warning" href="{% url 'edit' id=contact.id %}" title="Detail"><i class="fa-regular fa-pen-to-square"></i> Detail</a>
+                            <a class="btn btn-outline-danger" title="Delete"><i class="fa-solid fa-trash"></i> Remove</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
